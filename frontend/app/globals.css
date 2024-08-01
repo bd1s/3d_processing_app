@@ -1,33 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+
+.cursive {
+  font-family: "Cedarville Cursive", cursive;
+}
+.Welcome-text {
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.4)
+      ),
+      linear-gradient(90.01deg, #39353e 0.01%, #94b0b2 50.01%, #65c7bf 100%);
+    background-blend-mode: normal, screen;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  
+  .Welcome-box {
+    isolation: isolate;
+    overflow: hidden;
+    align-items: center;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border-radius: 32px;
+    box-shadow: inset 0 -7px 11px #f3f9f9; /* Catskill White */
+    display: flex;
+    position: relative;
+    width: -moz-max-content;
+    width: max-content;
+    transition: 0.45s cubic-bezier(0.6, 0.6, 0, 1) box-shadow;
   }
+  
+  .button-primary {
+    background: linear-gradient(
+        180deg,
+        rgba(101, 199, 191, 0.3) 0%, /* Downy with transparency */
+        rgba(101, 199, 191, 0.6) 50%, /* Downy with more opacity */
+        #94b0b2 100% /* Cascade */
+      ),
+      #9a5d94; /* Strikemaster as a fallback color */
+    box-shadow: inset 0 0 12px rgba(101, 199, 191, 0.4); /* Downy with transparency */
+    border-radius: 8px; /* Rounded corners */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Padding */
+    text-align: center; /* Centered text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s ease; /* Smooth background transition */
+  }
+  
+  .button-primary:hover {
+    background: linear-gradient(
+        180deg,
+        rgba(101, 199, 191, 0.4) 0%, /* Downy with transparency */
+        rgba(101, 199, 191, 0.7) 50%, /* Downy with more opacity */
+        #9a5d94 100% /* Strikemaster */
+      ),
+      #65c7bf; /* Downy as a fallback color */
+    box-shadow: inset 0 0 12px rgba(101, 199, 191, 0.6); /* Downy with more transparency */
+  }
+  
+
+/* Hide scrollbar for IE, Edge and Firefox */ 
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
 }
