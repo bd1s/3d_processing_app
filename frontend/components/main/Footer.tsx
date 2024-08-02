@@ -1,8 +1,8 @@
-// components/Footer.js
+// components/Footer.tsx
 import Image from 'next/image';
 import { FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
 
-export default function Footer() {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-[#0b3951] text-white text-center py-4">
       <div className="flex flex-col items-center mb-4">
@@ -19,13 +19,28 @@ export default function Footer() {
         </div>
         {/* Social Media Icons */}
         <div className="flex space-x-4 mt-2">
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#65ceb9]">
+          <a 
+            href="https://www.linkedin.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:text-[#65ceb9]"
+          >
             <FaLinkedin size={24} />
           </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#65ceb9]">
+          <a 
+            href="https://www.facebook.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:text-[#65ceb9]"
+          >
             <FaFacebook size={24} />
           </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#65ceb9]">
+          <a 
+            href="https://www.instagram.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:text-[#65ceb9]"
+          >
             <FaInstagram size={24} />
           </a>
         </div>
@@ -33,3 +48,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;

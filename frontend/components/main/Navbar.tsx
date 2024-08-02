@@ -1,16 +1,20 @@
-// components/Navbar.js
+// components/main/Navbar.tsx
 import Link from 'next/link';
-import '../app/globals.css';
+import Image from 'next/image';
+import '../../app/globals.css';
+import React from "react";
 
-export default function Navbar() {
+const Navbar: React.FC = () => {
   return (
     <nav className="bg-[#d0d0d0] p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo et texte */}
         <div className="flex items-center space-x-4">
-          <img 
+          <Image
             src="/logo1.png" 
             alt="Dentify3D Logo"
+            width={32}
+            height={32}
             className="w-8 h-8" 
           />
           <div className="text-gray-800 text-lg font-bold font-playfair">
@@ -20,18 +24,10 @@ export default function Navbar() {
 
         {/* Menu */}
         <div className="flex space-x-8 items-center">
-          <Link href="/">
-            <span className="text-gray-800 hover:text-gray-600">Home</span>
-          </Link>
-          <Link href="/about">
-            <span className="text-gray-800 hover:text-gray-600">About</span>
-          </Link>
-          <Link href="/contact">
-            <span className="text-gray-800 hover:text-gray-600">Contact</span>
-          </Link>
-          <Link href="/3d-processing">
-            <span className="text-gray-800 hover:text-gray-600">3D Processing</span>
-          </Link>
+          <a href="#hero" className="text-gray-800 hover:text-gray-600">Home</a>
+          <a href="#services" className="cursor-pointer">
+          Services</a>
+          <a href="#contact" className="text-gray-800 hover:text-gray-600">Contact</a>
           <Link href="/logout">
             <span className="bg-[#65ceb9] text-white px-4 py-2 rounded hover:bg-[#4da5a0]">
               Logout
@@ -42,3 +38,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+export default Navbar;
