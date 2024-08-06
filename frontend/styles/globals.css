@@ -1,0 +1,7 @@
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.bg-gradient-button {
+    background: linear-gradient(135deg, #4a9a92 80%, #6f8a8b 20%);
+  }
