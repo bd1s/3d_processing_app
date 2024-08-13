@@ -1,24 +1,18 @@
 import Hero from "@/components/main/Hero";
 import Services from "@/components/main/Services";
-import Navbar from "@/components/main/Navbar";
+import Navbar2 from "@/components/main/Navbar2";
 import Footer from "@/components/main/Footer";
 import Contact from "@/components/main/Contact";
-import  Home1 from "@/pages/accueil";
 
-export default function Home() {
+export default function Home1() {
   return (
     <main className="h-full w-full">
       <div className="flex flex-col gap-20">
-       <Navbar/>
-
-         <Hero />
+        <Navbar2/>
+        <Hero />
         <Services/>
         <Contact/>
-        <Footer/> 
-
-
-
-        
+        <Footer/>
       </div>
     </main>
   );

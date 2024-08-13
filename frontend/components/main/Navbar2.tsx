@@ -4,7 +4,7 @@ import Image from 'next/image';
 import '../../app/globals.css';
 import React from "react";
 
-const Navbar: React.FC = () => {
+const Navbar2: React.FC = () => {
   return (
     <nav className="bg-[#d0d0d0] p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
@@ -24,13 +24,15 @@ const Navbar: React.FC = () => {
 
         {/* Menu */}
         <div className="flex space-x-8 items-center">
-          <a href="/acceuil" className="text-gray-800 hover:text-gray-600">Home</a>
+          <a href="#hero" className="text-gray-800 hover:text-gray-600">Home</a>
           <a href="#services" className="cursor-pointer">
           Services</a>
+          <a href="#3DProcessing" className="cursor-pointer">
+          3d Processing</a>
           <a href="#contact" className="text-gray-800 hover:text-gray-600">Contact</a>
-          <Link href="/login">
+          <Link href="/logout">
             <span className="bg-[#65ceb9] text-white px-4 py-2 rounded hover:bg-[#4da5a0]">
-              Login
+              Logout
             </span>
           </Link>
         </div>
@@ -39,4 +41,4 @@ const Navbar: React.FC = () => {
   );
 }
 
-export default Navbar;
+export default Navbar2;
