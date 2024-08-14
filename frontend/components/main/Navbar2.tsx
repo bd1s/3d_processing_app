@@ -23,19 +23,34 @@ const Navbar2: React.FC = () => {
         </div>
 
         {/* Menu */}
-        <div className="flex space-x-8 items-center">
-          <a href="#hero" className="text-gray-800 hover:text-gray-600">Home</a>
-          <a href="#services" className="cursor-pointer">
-          Services</a>
-          <a href="#3DProcessing" className="cursor-pointer">
-          3d Processing</a>
-          <a href="#contact" className="text-gray-800 hover:text-gray-600">Contact</a>
-          <Link href="/logout">
-            <span className="bg-[#65ceb9] text-white px-4 py-2 rounded hover:bg-[#4da5a0]">
-              Logout
-            </span>
+        <ul className='flex space-x-8'>
+        <li>
+          <Link href="/accueil" className='hover:text-gray-300'>
+            Home
           </Link>
-        </div>
+        </li>
+        <li>
+          <Link href="/traitement" className='hover:text-gray-300'>
+            3D processing
+          </Link>
+        </li>
+        <li>
+          <Link href="/about" className='hover:text-gray-300'>
+          About
+          </Link>
+        </li>
+        <li>
+          <Link href="/contact" className='hover:text-gray-300'>
+          Contacts
+          </Link>
+        </li>
+        <li>
+          <Link href="/logout" className="bg-[#65ceb9] text-white px-4 py-2 rounded hover:bg-[#4da5a0]">
+            Logout
+          </Link>
+        </li>
+
+         </ul>
       </div>
     </nav>
   );

@@ -3,7 +3,6 @@ import { useState, useEffect, ChangeEvent } from "react";
 // import Draggable from 'react-draggable';
 import ThreeDViewer from './ThreeDViewer';
 import Footer from "@/components/main/Footer";
-import Navbar from "@/components/main/Navbar";
 import Navbar2 from "@/components/main/Navbar2";
 
 

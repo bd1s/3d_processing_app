@@ -8,7 +8,7 @@ import Footer from '@/components/main/Footer';
 const About: React.FC = () => {
   return (
     <div className=''>
-      
+      <Navbar2/>
       <main>
         <h3 className='text-cascade font-extrabold text-center mt-6 text-2xl text-underline bg-white'> About Our project </h3>
 
@@ -71,6 +71,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </main>
+      <Footer/>
     </div>
   );
 }
