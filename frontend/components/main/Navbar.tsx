@@ -24,13 +24,13 @@ const Navbar: React.FC = () => {
 
         {/* Menu */}
         <div className="flex space-x-8 items-center">
-          <a href="#hero" className="text-gray-800 hover:text-gray-600">Home</a>
+          <a href="/acceuil" className="text-gray-800 hover:text-gray-600">Home</a>
           <a href="#services" className="cursor-pointer">
           Services</a>
           <a href="#contact" className="text-gray-800 hover:text-gray-600">Contact</a>
-          <Link href="/logout">
+          <Link href="/login">
             <span className="bg-[#65ceb9] text-white px-4 py-2 rounded hover:bg-[#4da5a0]">
-              Logout
+              Login
             </span>
           </Link>
         </div>
