@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'models3d',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
