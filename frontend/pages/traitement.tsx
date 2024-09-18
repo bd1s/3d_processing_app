@@ -104,8 +104,6 @@
 
 
 
-
-
 "use client";
 import { useState, useEffect, ChangeEvent } from "react";
 import ThreeDViewer from './ThreeDViewer';
@@ -133,7 +131,18 @@ const Traitement3D: React.FC = () => {
   const [fileUrl, setFileUrl] = useState<string | null>(null);
   const [showViewer, setShowViewer] = useState<boolean>(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [labeledObjUrl, setLabeledObjUrl] = useState<string | null>(null);
+  const [jsonFileUrl, setJsonFileUrl] = useState<string | null>(null);
 
+  const handleDownload = (url: string, filename: string) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -170,17 +179,36 @@ const Traitement3D: React.FC = () => {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch('http://localhost:8000/api/simplify3d/', {
+      const response = await fetch('http://localhost:8000/simplify/', {
         method: 'POST',
         body: formData,
       });
-      
 
       if (response.ok) {
         const data = await response.json();
         setDownloadUrl(data.downloadUrl);
       } else {
         console.error('Failed to simplify the file');
+      }
+    }
+  };
+
+  const handleLabelingClick = async () => {
+    if (file) {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const response = await fetch('http://localhost:8000/label/', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setLabeledObjUrl(data.labeledObjUrl);
+        setJsonFileUrl(data.jsonFileUrl);
+      } else {
+        console.error('Failed to label the file');
       }
     }
   };
@@ -211,6 +239,7 @@ const Traitement3D: React.FC = () => {
         <div className="flex space-x-14 mt-10 mb-20">
           <button className="bg-custom-green text-white px-6 py-4 rounded hover:bg-blue-600" onClick={handleVisualiserClick}>Visualiser</button>
           <button className="bg-custom-green text-white px-6 py-4 rounded hover:bg-green-600" onClick={handleSimplifierClick}>Simplifier</button>
+          <button className="bg-custom-green text-white px-6 py-4 rounded hover:bg-yellow-600" onClick={handleLabelingClick}>Étiqueter</button>
         </div>
 
         {showViewer && fileUrl && (
@@ -227,6 +256,23 @@ const Traitement3D: React.FC = () => {
             <a href={downloadUrl} className="bg-custom-green text-white px-6 py-4 rounded hover:bg-yellow-600" download>Download Simplified Model</a>
           </div>
         )}
+
+{labeledObjUrl && (
+  <div className="mt-10">
+    <button onClick={() => handleDownload(labeledObjUrl, 'labeled_model.obj')} className="bg-custom-green text-white px-6 py-4 rounded hover:bg-yellow-600">
+      Download Labeled OBJ
+    </button>
+    
+  </div>
+)}
+
+{jsonFileUrl && (
+  <div className="mt-10">
+    <button onClick={() => handleDownload(jsonFileUrl, 'labels.json')} className="bg-custom-green text-white px-6 py-4 rounded hover:bg-yellow-600">
+      Download Labels JSON
+    </button>
+  </div>
+)}
       </main>
       <Footer />
     </div>

@@ -3,7 +3,7 @@ from firebase_admin import credentials, storage
 import os
 
 # Chemin du fichier de clé JSON - utilisez une variable d'environnement ou un chemin relatif pour plus de flexibilité
-file_path = os.getenv('FIREBASE_CREDENTIALS_PATH', 'C:/3d_processing_app/backend/dprocessing-9d736-firebase-adminsdk-6i4nn-d1789de6d9.json')
+file_path = os.getenv('FIREBASE_CREDENTIALS_PATH', 'C:/3d_processing_app/backend/dprocessing-9d736-firebase-adminsdk-6i4nn-cb7fdac2e4.json')
 
 if os.path.exists(file_path):
     print("File exists.")
