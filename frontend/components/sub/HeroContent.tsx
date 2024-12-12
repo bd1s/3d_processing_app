@@ -52,12 +52,7 @@ const HeroContent = () => {
         >
           Nous sommes spécialisés dans le traitement et la modélisation 3D d'objets dentaires. Explorez nos solutions innovantes pour améliorer vos pratiques cliniques et offrir des soins de qualité supérieure à vos patients.
         </motion.p>
-        <motion.a
-          variants={slideInFromLeft(1)}
-          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
-        >
-          Se connecter 
-        </motion.a>
+       
       </div>
 
       <motion.div
